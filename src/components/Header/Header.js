@@ -47,7 +47,7 @@ export default function Header() {
             {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-		  Todo List
+		  MIRI MEIMOON 
           </Typography>
           <Button color="inherit">Home</Button>
 		  <Button color="inherit">About</Button>
