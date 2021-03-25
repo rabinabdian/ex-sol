@@ -71,19 +71,53 @@ export default function Login() {
 	
 	return (
 		<form onSubmit={handleSubmit}>
-			<div className="mb-3">
+			{/* <div className="mb-3">
 				<label className="form-label">Email address</label>
 				<input type="email" className="form-control" />	
 			</div>
 			<div className="mb-3">
 				<label>Password</label>
 				<input type="password" className="form-control" />
-			</div>
-			<button 
+			</div> */}
+			{/* <button 
 				disabled={isLoading}
 				type="submit" 
-				className="btn btn-primary"
-			>Submit</button>
+				
+			>Submit</button> */}
+			          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <Button
+            type="submit"
+			disabled={isLoading}
+            // fullWidth
+            variant="contained"
+            color="primary"
+            className="btn btn-primary"
+          >
+            Submit
+          </Button>
+
+
 			{
 				isLoading && <h1>Loading...</h1>
 			}
