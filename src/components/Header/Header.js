@@ -7,54 +7,35 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Avatar from '@material-ui/core/Avatar';
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     '& > *': {
-//       margin: theme.spacing(1),
-//     },
-//   },
-// }));
+import { Link } from 'react-router-dom';
 
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-	  flexGrow: 1,
-	},
-	menuButton: {
-	  marginRight: theme.spacing(2),
-	},
-	title: {
-	  flexGrow: 1,
-	},
-  }));
+
+
 
 
 export default function Header() {
-	const classes = useStyles();
+	
 
 	return (
-		<header className="navbar bg-light d-flex justify-content-between">
-		<div className={classes.root}>
-			
-        
-      <AppBar position="static">
-        <Toolbar>
-		<Avatar alt="piglet is making a booboo" src={piglet} />
-
-           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu"> 
-            {/* <MenuIcon /> */}
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-		  MIRI MEIMOON 
-          </Typography>
-          <Button color="inherit">Home</Button>
-		  <Button color="inherit">About</Button>
-		  <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-		</header>
+		<AppBar position="static">
+        	<Toolbar className="d-flex justify-content-between">
+				<Avatar alt="piglet is making a booboo" src={piglet} />
+				<nav className="navbar navbar-expand-lg navbar-light">
+					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+						<li className="nav-item">
+							<Link className="nav-link active text-white" to="/">
+								Home
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link text-white" to="/todo">
+								Todo
+							</Link>
+						</li>
+					</ul>
+				</nav>
+			</Toolbar>
+		</AppBar>
 	)
 }

@@ -8,25 +8,26 @@ import { Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div className="h-100 d-flex flex-column justify-content-between">
-      <Header />
-
-      <div className="container mt-3">
-        <div className="row justify-content-center">
-          <div className="col-4">
-            <Switch>
-              <Route path="/" exact>
-                <Login />
-              </Route>
-              <Route path="/todo" exact>
-                <TodoList />
-              </Route>
-            </Switch>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
-    </div>
+		<Header />
+		
+		<div className="container mt-3">
+			<div className="row justify-content-center">
+				<div className="col-4">
+					<Switch>
+						<Route path="/" exact>
+							<Login />
+						</Route>
+						<Route path="/todo" exact>
+							<TodoList />
+						</Route>
+					</Switch>
+					
+				</div>
+			</div>
+		</div>	
+		
+		<Footer />		
+	</div>  
   );
 }
 
