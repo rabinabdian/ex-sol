@@ -1,7 +1,7 @@
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Paper from '@material-ui/core/Paper';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Button } from '@material-ui/core';
 
 export default function TodoList() {
@@ -12,7 +12,8 @@ export default function TodoList() {
 		const todos = await response.json();
 		setTodoList(todos);
 	}
-	
+
+
 	const deleteTodo = async (todoItem) => {
 		await fetch(`http://nztodo.herokuapp.com/api/task/${todoItem.id}?format=json`, {
 			method: 'DELETE'
