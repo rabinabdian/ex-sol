@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import TodoList from "./components/TodoList";
+import Search from "./components/Search";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
 						</Route>
 						<Route path="/todo" exact>
 							<TodoList />
+						</Route>
+						<Route path="/search" exact>
+							<Search />
 						</Route>
 					</Switch>
 					
