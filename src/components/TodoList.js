@@ -3,16 +3,23 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Paper from '@material-ui/core/Paper';
 import { useState,useEffect } from 'react';
 import { Button } from '@material-ui/core';
+import { useLocation } from 'react-router-dom';
 
 export default function TodoList() {
 	const [todoList, setTodoList] = useState([]);
+	const location = useLocation();
 	
-	const loadList = async () => {
-		const response = await fetch('http://nztodo.herokuapp.com/api/tasks/?format=json');
+	// const loadList = async () => {
+	// 	const response = await fetch('http://nztodo.herokuapp.com/api/tasks/?format=json');
+	// 	const todos = await response.json();
+	// 	setTodoList(todos);
+	// }
+
+	const loadList = async (search = '') => {
+		const response = await fetch(`http://nztodo.herokuapp.com/api/tasks/?format=json&search=${search}`);
 		const todos = await response.json();
 		setTodoList(todos);
 	}
-
 
 	const deleteTodo = async (todoItem) => {
 		await fetch(`http://nztodo.herokuapp.com/api/task/${todoItem.id}?format=json`, {
@@ -20,6 +27,15 @@ export default function TodoList() {
 		});
 		loadList();
 	}
+
+	useEffect(
+		() => {
+			loadList(location.search.split('=')[1]);			
+		},
+		[
+			location.search
+		]
+	)	
 	
 	return (
 		<Paper className="p-4">
